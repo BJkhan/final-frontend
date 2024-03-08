@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import apiUrl from '../../apiConf';
+
 
 const Sliders = () => {
   const [slides, setSlides] = useState([]);
@@ -7,7 +9,7 @@ const Sliders = () => {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const response = await axios.get('api/api/slides');
+        const response = await axios.get(`${apiUrl}/api/slides`);
         setSlides(response.data.slides);
       } catch (error) {
         console.error('Error fetching slides:', error);

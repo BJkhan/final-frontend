@@ -11,6 +11,7 @@ import axios from "axios";
 import { ORDER_PAY_RESET } from "../Redux/Constants/OrderConstants";
 import PaymentForm from "../components/homeComponents/PaymentForm";
 import PayFast from "./PayFast";
+import apiUrl from "../apiConf";
 
 const OrderScreen = ({ match }) => {
   window.scrollTo(0, 0);
@@ -37,7 +38,7 @@ const OrderScreen = ({ match }) => {
   useEffect(() => {
     const addPayPalScript = async () => {
       try {
-        const { data: clientId } = await axios.get("api/api/config/paypal");
+        const { data: clientId } = await axios.get(`${apiUrl}/api/config/paypal`);
         if (!document.getElementById("paypal-sdk-script")) {
           const script = document.createElement("script");
           script.id = "paypal-sdk-script";

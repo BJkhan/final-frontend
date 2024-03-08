@@ -5,13 +5,13 @@ import Toast from "./../LoadingError/Toast";
 import Loading from "./../LoadingError/Loading";
 import { toast } from "react-toastify";
 import { updateUserProfile } from "../../Redux/Actions/userActions";
-import { provinces, cities, countries } from "../../data/registerUserAddress";
+import { countries } from "../../data/registerUserAddress";
 
 const AddressTab = () => {
     const [addressFirst, setAddressFirst] = useState("");
     const [addressSecond, setAddressSecond] = useState("");
-    const [province, setProvince] = useState("Province");
-    const [city, setCity] = useState("City");
+    const [province, setProvince] = useState("");
+    const [city, setCity] = useState("");
     const [zipCode, setZipCode] = useState(22010);
     const [country, setCountry] = useState("Libya");
   const toastId = React.useRef(null);
@@ -96,22 +96,24 @@ const AddressTab = () => {
         </div>
         <div className="col-md-6">
           <div className="form">
-            <select class="form-control form-select form-select-lg" aria-label="Default select example" value={province}
-                            onChange={(e) => setProvince(e.target.value)}>
-            {provinces.map((province) => (
-              <option value={province.value}>{province.label}</option>
-            ))}
-          </select>
+          <input
+                className="input-group"
+                type="text"
+                placeholder="Province/State *"
+                value={province}
+                onChange={(e) => setProvince(e.target.value)}
+              />
           </div>
         </div>
         <div className="col-md-6">
           <div className="form">
-          <select class="form-select form-select-lg" aria-label="Default select example" value={city}
-                            onChange={(e) => setCity(e.target.value)}>
-            {cities.map((city) => (
-              <option value={city.value}>{city.label}</option>
-            ))}
-          </select>
+          <input
+                className="input-group input-group-sm"
+                type="text"
+                placeholder="City*"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
           </div>
         </div>
         <div className="col-md-6">

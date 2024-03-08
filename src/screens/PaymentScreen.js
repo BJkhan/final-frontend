@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { savePaymentMethod } from "../Redux/Actions/cartActions";
 import Header from "./../components/Header";
+import apiUrl from "../apiConf";
 
 const PaymentScreen = ({ history }) => {
   window.scrollTo(0, 0);
@@ -19,7 +20,7 @@ const PaymentScreen = ({ history }) => {
   useEffect(() => {
     const fetchPaymentOptions = async () => {
       try {
-        const response = await fetch('api/api/paymentOptions');
+        const response = await fetch(`${apiUrl}/api/paymentOptions`);
         const data = await response.json();
 
         const activeOptions = data.payOptions.filter(option => option.isActive);

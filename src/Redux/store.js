@@ -51,12 +51,17 @@ const shippingAddressFromLocalStorage = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress"))
   : {};
 
+  // price
+const taxesFromLocalStorage = localStorage.getItem("price")
+? JSON.parse(localStorage.getItem("price"))
+: {};
 const initialState = {
   cart: {
     cartItems: cartItemsFromLocalStorage,
     shippingAddress: shippingAddressFromLocalStorage,
   },
   userLogin: { userInfo: userInfoFromLocalStorage },
+  taxSettings: {price: taxesFromLocalStorage}
 };
 
 const middleware = [thunk];

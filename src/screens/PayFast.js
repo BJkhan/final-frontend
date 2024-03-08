@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import apiUrl from '../apiConf';
 
 const PayFast = ({amount, orderId, name, email}) => {
   const [payFastForm, setPayFastForm] = useState('');
   useEffect(()=>{
     const fetchPayFastForm = async () => {
       try {
-        const response = await axios.post('api/api/orders/payfast',{
+        const response = await axios.post(`${apiUrl}/api/orders/payfast`,{
           amount,
           orderId,
           name,

@@ -12,12 +12,14 @@ import {
 } from "../Constants/ProductConstants"
 import axios from 'axios';
 import { logout } from "./userActions";
+import apiUrl from "../../apiConf";
+
 
 export const listProduct = (keyword = "", pageNumber = "", filters = {}) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`api/api/products`, {
+    const { data } = await axios.get(`${apiUrl}/api/products`, {
       params: {
         keyword,
         pageNumber,
@@ -65,7 +67,7 @@ export const localProductFilter = (filteredProducts) => ({
 export const listProductDetails = (id) => async(dispatch) =>{
     try {
         dispatch({type:PRODUCT_DETAILS_REQUEST})
-        const {data} = await axios.get(`api/api/products/${id}`);
+        const {data} = await axios.get(`${apiUrl}/api/products/${id}`);
         dispatch({type:PRODUCT_DETAILS_SUCCESS, payload: data})
     } catch (error) {
         dispatch({
@@ -95,7 +97,7 @@ export const createProductReview =
         },
       };
 
-      await axios.post(`api/api/products/${productId}/review`, review, config);
+      await axios.post(`${apiUrl}/api/products/${productId}/review`, review, config);
       dispatch({ type: PRODUCT_CREATE_REVIEW_SUCCESS });
     } catch (error) {
       const message =

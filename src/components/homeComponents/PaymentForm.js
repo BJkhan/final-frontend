@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { payOrder } from "../../Redux/Actions/OrderActions";
 import { useDispatch } from "react-redux";
+import apiUrl from '../../apiConf';
+
 
 const PaymentForm = ({ total, orderId, email}) => {
   const [Msisdn, setMsisdn] = useState('0913632323');
@@ -18,7 +20,7 @@ const PaymentForm = ({ total, orderId, email}) => {
   const initiatePayment = async () => {
     try {
       const response = await axios.post(
-        'api/api/orders/initiate-payment',
+        `${apiUrl}/api/orders/initiate-payment`,
         {
           Msisdn,
           BirthYear,
@@ -40,7 +42,7 @@ const PaymentForm = ({ total, orderId, email}) => {
   const completePayment = async () => {
     try {
       const response = await axios.post(
-        'api/api/orders/pay-invoice',
+        `${apiUrl}/api/orders/pay-invoice`,
         {
           otp: '111111', 
           Amount: total,
