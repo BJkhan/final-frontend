@@ -61,126 +61,131 @@ const Register = ({ location, history }) => {
     );
   };
 
-  return (
-    <>
-      <Header />
-      <div className="container col-8 justify-content-center align-items-center login-center">
-        {error && <Message variant="alert-danger">{error}</Message>}
-        {loading && <Loading />}
+return (
+  <>
+    <Header />
+    <div className="container col-lg-8 col-md-10 col-sm-12 d-flex justify-content-center align-items-center login-center">
+      {error && <Message variant="alert-danger">{error}</Message>}
+      {loading && <Loading />}
 
-        <form className="Login" onSubmit={submitHandler}>
-          <div className="row">
-            <div className="col-4 me-3">
-              <input
-                className="input-group input-group-sm"
-                type="text"
-                placeholder="Username *"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-
-            <div className="col-4 me-2">
-              <input
-                className="input-group input-group-sm"
-                type="email"
-                placeholder="Email *"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <div className="col-3">
-              <input
-                className="input-group input-group-sm"
-                type="password"
-                placeholder="Password *"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </div>
-          <p className="text-start">Shipping Adrress</p>
-
-          <div className="row">
-            <div className="col-4 me-3">
-              <input
-                className="input-group input-group-sm"
-                type="text"
-                id="lal"
-                placeholder="House/Office No *"
-                value={addressFirst}
-                onChange={(e) => setAddressFirst(e.target.value)}
-              />
-            </div>
-            <div className="col-4 me-2">
-              <input
-                className="input-group input-group-sm"
-                type="text"
-                placeholder="Street No *"
-                value={addressSecond}
-                onChange={(e) => setAddressSecond(e.target.value)}
-              />
-            </div>
-            <div className="col-3">
-              <input
-                className="input-group input-group-sm"
-                type="number"
-                placeholder="22010 *"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-              />
-            </div>
+      <form className="Login w-100" onSubmit={submitHandler}>
+        <div className="row">
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="text"
+              placeholder="Username *"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
 
-          <div className="row">
-            <div className="col-4 me-3">
-              <input
-                className="input-group input-group-sm"
-                type="text"
-                placeholder="Province/State *"
-                value={province}
-                onChange={(e) => setProvince(e.target.value)}
-              />
-            </div>
-            <div className="col-4 me-2">
-              <input
-                className="input-group input-group-sm"
-                type="text"
-                placeholder="City*"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
-            <div className="col-3">
-              <select
-                class="form-select form-select-lg mt-4 mb-2"
-                aria-label="Default select example"
-                value={country}
-                onChange={handleCountryChange}
-              >
-                {countries.map((country) => (
-                  <option value={country.name}>{country.name}</option>
-                ))}
-              </select>
-            </div>
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="email"
+              placeholder="Email *"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
-          <div className="row justify-content-center">
-            <div className="col-3">
-              <button type="submit">Register</button>
-            </div>
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="password"
+              placeholder="Password *"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
+        </div>
 
-          <p>
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-              I Have Account <strong>Login</strong>
-            </Link>
-          </p>
-        </form>
-      </div>
-    </>
-  );
+        <p className="">Enter your Shipping Address</p>
+
+        <div className="row">
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="text"
+              placeholder="House/Office No *"
+              value={addressFirst}
+              onChange={(e) => setAddressFirst(e.target.value)}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="text"
+              placeholder="Street No *"
+              value={addressSecond}
+              onChange={(e) => setAddressSecond(e.target.value)}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="number"
+              placeholder="Zip Code *"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="text"
+              placeholder="Province/State *"
+              value={province}
+              onChange={(e) => setProvince(e.target.value)}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12 mb-3">
+            <input
+              className="form-control form-control-sm small-input"
+              type="text"
+              placeholder="City *"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12 mt-4">
+            <select
+              className="form-select form-select-sm small-input"
+              aria-label="Default select example"
+              value={country}
+              onChange={handleCountryChange}
+            >
+              {countries.map((country, index) => (
+                <option key={index} value={country.name}>
+                  {country.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-6 d-grid">
+            <button type="submit" className="btn btn-primary">
+              Register
+            </button>
+          </div>
+        </div>
+
+        <p className="text-center mt-3">
+          <Link to={redirect ? `/login?redirect={redirect}` : "/login"}>
+            I Have Account <strong>Login</strong>
+          </Link>
+        </p>
+      </form>
+    </div>
+  </>
+);
+
 };
 
 export default Register;

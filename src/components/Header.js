@@ -12,13 +12,8 @@ const Header = () => {
   useEffect(() => {
     if (inputCleared) {
       setInputCleared(false);
-      refreshProducts();
     }
   }, [inputCleared]);
-
-  const refreshProducts = () => {
-    history.push("/");
-  };
 
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -59,8 +54,8 @@ const Header = () => {
           <div className="row">
             {/* Top Header Content */}
             <div className="col-md-6 d-flex align-items-center justify-content-start display-none">
-              <p>+92 315 2311183</p>
-              <p>bilal@gmail.com</p>
+              <p>+27 823193998</p>
+              <p>aliaaalabbasy1992@gmail.com</p>
             </div>
             <div className="col-md-4 col-12 mx-auto justify-content-end d-flex align-items-center">
               <Link to="">

@@ -758,4 +758,18 @@ textarea:focus {
     transform: translateY(0);
   }
 }
-
+.size-btn{
+  font-size: 10px;
+}
+.product-thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Optional: Adjust as needed */
+}
+.thumbnail img {
+  max-width: 75px; /* Optional: Adjust thumbnail size as needed */
+  max-height: 75px; /* Optional: Adjust thumbnail size as needed */
+}
+.thumbnail {
+  cursor: pointer;
+}

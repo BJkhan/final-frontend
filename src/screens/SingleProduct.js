@@ -78,15 +78,23 @@ const SingleProduct = ({ history, match }) => {
         ) : (
           <>
             <div className="row">
-              <div className="col-md-1 col-sm-1">
-                <div className="product-thumbnails pt-3">
-                  {/* Display four images vertically */}
+
+	    <div className="col-md-5 col-sm-10">
+                <div className="single-image">
+                  <img
+                    src={selectedImage}
+                    alt={product.name}
+                    className="img-fluid zoom-on-hover"
+                  />
+                </div>
+                <div className="product-thumbnails pt-3 d-flex justify-content-center">
+                  {/* Display four images horizontally */}
                   {product.additionalImages &&
                     product.additionalImages.length > 0 &&
                     product.additionalImages.slice(0, 4).map((image, index) => (
                       <div
                         key={index}
-                        className="thumbnail"
+                        className="thumbnail mx-1"
                         onClick={() => handleImageClick(image)}
                       >
                         <img
@@ -96,15 +104,6 @@ const SingleProduct = ({ history, match }) => {
                         />
                       </div>
                     ))}
-                </div>
-              </div>
-              <div className="col-md-5 col-sm-5">
-                <div className="single-image">
-                  <img
-                    src={selectedImage}
-                    alt={product.name}
-                    className="img-fluid zoom-on-hover"
-                  />
                 </div>
               </div>
               <div className="col-md-6">
@@ -197,7 +196,7 @@ const SingleProduct = ({ history, match }) => {
                               <button
                                 key={index}
                                 type="button"
-                                className={`btn btn-outline-secondary size-btn ${
+                                className={`btn btn-outline-secondary btn-sm size-btn ${
                                   selectedSize === size ? "active" : ""
                                 }`}
                                 onClick={() => setSelectedSize(size)}

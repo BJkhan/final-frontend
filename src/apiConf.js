@@ -1,2 +1,2 @@
-const apiUrl = 'http://http://66.29.143.171/api';
+const apiUrl = 'https://lufrsa.com';
 export default apiUrl;

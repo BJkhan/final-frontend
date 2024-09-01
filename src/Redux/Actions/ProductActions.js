@@ -14,7 +14,6 @@ import axios from 'axios';
 import { logout } from "./userActions";
 import apiUrl from "../../apiConf";
 
-
 export const listProduct = (keyword = "", pageNumber = "", filters = {}) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
